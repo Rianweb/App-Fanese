@@ -2,7 +2,8 @@
 $servername = "localhost";
 $username = "root";
 $password = '';
-$db = "patrimonio_fs";
+$db = parse_url(getenv("DATABASE_URL"));
+$db["path"] = ltrim($db["path"], "/");
 
 // Create connection
 $conn = new mysqli($servername, $username, $password,$db);
